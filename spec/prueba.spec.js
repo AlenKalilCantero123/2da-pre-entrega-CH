@@ -4,13 +4,14 @@
 //   });
 // });
 
+const { Activity, Repository } = require("../scripts/index");
 
-const {Activity, Repository} = require ("../scripts/index")
+describe("La clase Repository", () => {
+  it("Debe ser una clase", () => {
+    // Cuerpo de la prueba
+  });
 
-describe ("La clase Repository", ()=>{
-
- it("Debe ser una clase", () ={});
- 
- it("Debe tener el método addActivity", () ={});
-})
- 
+  it("Debe tener el método addActivity", () => {
+    // Cuerpo de la prueba
+  });
+});
