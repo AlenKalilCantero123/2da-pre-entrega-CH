@@ -1,75 +1,96 @@
-import { Repository } from './repository.js';
+
+
+class Activity {
+    constructor(id, title, description, imgUrl) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.imgUrl = imgUrl;
+    }
+}
+
+class Repository {
+    constructor() {
+        this.activities = [];
+        this.id = 0;
+    }
+
+    getAllActivities() {
+        return this.activities;
+    }
+
+    createActivity(title, description, imgUrl) {
+        const activity = new Activity(++this.id, title, description, imgUrl);
+        this.activities.push(activity);
+        return activity; // Devuelve la actividad creada
+    }
+
+    deleteActivity(id) {
+        this.activities = this.activities.filter(act => act.id !== id);
+    }
+}
 
 const repo = new Repository();
 
-function createActivityCard(activity) {
-  const { title, description, imgUrl } = activity;
-  
-  const titleElement = document.createElement('h3');
-  titleElement.innerHTML = title;
+function buildActivity(act) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.id = act.id;
 
-  const descriptionElement = document.createElement('p');
-  descriptionElement.innerHTML = description;
+    const titleTag = document.createElement("h3");
+    titleTag.textContent = act.title;
 
-  const imageElement = document.createElement('img');
-  imageElement.src = imgUrl;
+    const descriptionTag = document.createElement("p");
+    descriptionTag.innerText = act.description;
 
-  const cardContainer = document.createElement('div');
-  cardContainer.classList.add('activity-card');
-  cardContainer.appendChild(titleElement);
-  cardContainer.appendChild(descriptionElement);
-  cardContainer.appendChild(imageElement);
+    const imgTag = document.createElement("img");
+    imgTag.src = act.imgUrl;
+    imgTag.alt = `imagen de ${act.title}`;
 
-  return cardContainer;
+    card.appendChild(titleTag);
+    card.appendChild(descriptionTag);
+    card.appendChild(imgTag);
+
+    // Agregar listener de clic para eliminar la tarjeta
+    card.addEventListener("click", () => {
+        repo.deleteActivity(act.id);
+        buildActivities(); // Volver a construir las tarjetas después de eliminar una
+    });
+
+    return card;
 }
 
-function refreshActivityContainer() {
-  const activityContainer = document.getElementById('activity-container');
-  activityContainer.innerHTML = '';
+function buildActivities() {
+    const container = document.getElementById("activity-container");
+    container.innerHTML = ""; // Limpiar el contenedor antes de agregar nuevas actividades
+    const activities = repo.getAllActivities();
+    const activitiesHTML = activities.map(buildActivity);
 
-  const activities = repo.getAllActivities();
-  const activityCards = activities.map(createActivityCard);
-
-  activityCards.forEach(card => {
-    activityContainer.appendChild(card);
-  });
+    activitiesHTML.forEach(element => {
+        container.appendChild(element);
+    });
 }
 
-function addActivityHandler(event) {
-  event.preventDefault();
+function handleSubmit(event) {
+    event.preventDefault();
 
-  const titleInput = document.getElementById('activity-name');
-  const descriptionInput = document.getElementById('activity-description');
-  const imgUrlInput = document.getElementById('image-link');
+    const titleInput = document.getElementById("activity-name");
+    const descriptionInput = document.getElementById("activity-description");
+    const imgUrlInput = document.getElementById("image-link");
 
-  const title = titleInput.value.trim();
-  const description = descriptionInput.value.trim();
-  const imgUrl = imgUrlInput.value.trim();
+    if (titleInput.value === "" || descriptionInput.value === "" || imgUrlInput.value === "") {
+        alert("Debe completar todos los datos.");
+        return;
+    }
 
-  if (!title || !description || !imgUrl) {
-    alert('Por favor complete todos los campos.');
-    return;
-  }
+    repo.createActivity(titleInput.value, descriptionInput.value, imgUrlInput.value);
+    buildActivities();
 
-  const newActivity = { title, description, imgUrl };
-  repo.addActivity(newActivity);
-  refreshActivityContainer();
-
-  titleInput.value = '';
-  descriptionInput.value = '';
-  imgUrlInput.value = '';
+    // Limpiar los campos del formulario después de agregar la actividad
+    titleInput.value = "";
+    descriptionInput.value = "";
+    imgUrlInput.value = "";
 }
 
-const addButton = document.querySelector('button[type="submit"]');
-addButton.addEventListener('click', addActivityHandler);
-
-function deleteActivityHandler(event) {
-  const cardToDelete = event.target.closest('.activity-card');
-  if (!cardToDelete) return;
-
-  const index = Array.from(cardToDelete.parentNode.children).indexOf(cardToDelete);
-  repo.activities.splice(index, 1);
-  cardToDelete.remove();
-}
-
-document.getElementById('activity-container').addEventListener('click', deleteActivityHandler);
+const submitButton = document.querySelector("#activity-form button");
+submitButton.addEventListener("click", handleSubmit);
