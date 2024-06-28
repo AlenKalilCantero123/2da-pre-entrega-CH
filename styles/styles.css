@@ -1,3 +1,19 @@
+/* Reset y estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(42, 42, 159, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  color: #fff;
+}
+
+/* Tipografías personalizadas */
 .indie-flower-regular, 
 #title {
   font-family: "Indie Flower", cursive;
@@ -5,56 +21,22 @@
   font-style: normal;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(42,42,159,1) 35%, rgba(0,212,255,1) 100%);
-  color: #fff;
-}
-
+/* Encabezados */
 #title {
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-size: 120px;
   animation: tremble 0.5s ease infinite alternate;
 }
 
 #subtitle {
   cursor: pointer;
-  color: rgb(253, 253, 253);
+  color: #fdfdfd;
   text-align: center;
   animation: moveUpDown 0.5s ease infinite alternate;
 }
 
-.about-me-box {
-  border: 2px solid #b93f3f;
-  border-radius: 10px;
-  padding: 20px;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.image-box {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.small-box {
-  width: 30%;
-  border: 2px solid #a83232;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-}
-
-.image-container {
-  margin-top: 10px;
-}
-
-/**********************************************************************************/
-
+/* Navbar */
 .navbar {
   background-color: #333;
   color: #fff;
@@ -97,39 +79,73 @@ body {
   text-decoration: underline;
 }
 
-/**********************************************************************************/
-
-/* Reset default form styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.cart-counter {
+  color: #fff;
+  font-size: 18px;
 }
 
-/* Style the form container */
-#activity-form {
-  max-width: 400px;
-  margin: 0 auto;
-  width: 300px;
-  background-color: #000;
-  padding: 20px;
+/* Secciones */
+.about-me-box, .about-section, .service-section, .commitment-section, .clients-section, .summary-section {
+  border: 2px solid #b93f3f;
   border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  margin: 40px auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.image-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.small-box {
+  width: 30%;
+  border: 2px solid #a83232;
+  border-radius: 10px;
+  padding: 10px;
   text-align: center;
 }
 
-/* Style form groups */
+.image-container {
+  margin-top: 10px;
+}
+
+section h1, section h2 {
+  text-align: center;
+  color: #ffd700;
+}
+
+section p {
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Formularios */
+#activity-form, .contact-form-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .form-group {
   margin-bottom: 20px;
 }
 
-/* Style labels */
 .form-group label {
   display: block;
   margin-bottom: 5px;
 }
 
-/* Style inputs */
-.form-group input[type="text"] {
+.form-group input[type="text"], 
+.form-group input[type="email"],
+.form-group textarea {
   width: 100%;
   padding: 10px;
   border: none;
@@ -141,13 +157,13 @@ body {
   transition: border-color 0.3s ease;
 }
 
-/* Style inputs on focus */
-.form-group input[type="text"]:focus {
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
   border-color: #007bff;
 }
 
-/* Style submit button */
-#activity-form button {
+.form-group button {
   display: block;
   width: 100%;
   padding: 10px;
@@ -159,26 +175,26 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* Style submit button on hover */
-#activity-form button:hover {
+.form-group button:hover {
   background-color: #0056b3;
 }
 
-/**********************************************************************************/
-
+/* Tarjetas */
 .card {
   width: 300px;
-  margin: 10px; /* Espacio entre tarjetas */
+  margin: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: rgb(253, 253, 253);
+  color: #fdfdfd;
+  transition: transform 0.3s ease;
 }
 
 .card img {
   width: 100%;
   height: auto;
+  max-height: 200px;
 }
 
 .card-content {
@@ -186,8 +202,7 @@ body {
 }
 
 .card-content h3 {
-  margin-top: 0;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
 }
 
 .card-content p {
@@ -197,7 +212,6 @@ body {
 .card:hover {
   cursor: pointer;
   transform: translateY(-5px);
-  transition: transform 0.3s ease;
 }
 
 #activity-container {
@@ -206,18 +220,63 @@ body {
   justify-content: center;
 }
 
-
-.card img {
-  width: 100%; 
-  height: auto; 
-  max-height: 200px; 
+/* Carrito */
+#cart {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
 }
 
+.cart-item {
+  margin-bottom: 10px;
+}
 
+.cart-total {
+  font-weight: bold;
+  margin-top: 10px;
+}
 
-*********************
-card {
-border-radius: 1rem;
-padding: 5%;
+/* Footer */
+footer {
+  background-color: #343a40;
+  padding: 40px 0;
+  color: #fff;
+}
 
+footer h5 {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+footer p, footer li {
+  font-size: 14px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer .fab {
+  margin-right: 10px;
+}
+
+/* Estilos adicionales */
+body, h1, h2, h3, h4, h5, p, ul, li, a {
+  color: #fff;
+}
+
+.price {
+  font-size: 14px;
+  color: #333;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
 }

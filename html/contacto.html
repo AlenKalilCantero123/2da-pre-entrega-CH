@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEKNETIUM</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Jacquard+12+Charted&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <h1 class="logo">Teknetium logo</h1>
+    <ul class="nav-links">
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="/html/productos.html">Productos</a></li>
+      <li><a href="/html/clientes.html">Clientes</a></li>
+      <li><a href="/html/contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h1 id="title">Contacto</h1>
+
+<div class="content">
+  <h2 id="subtitle">Envíame un correo</h2>
+  <div class="about-me-box">
+    <h3>Tu consulta</h3>
+    <p>
+      Gracias por tu interés en contactarme. Utiliza el formulario a continuación para enviarme tus consultas, comentarios o proyectos que desees discutir. Estaré encantado de responder lo antes posible.
+      Por favor, completa todos los campos obligatorios marcados con * para que pueda ayudarte de la mejor manera posible.
+    </p>
+  </div>
+
+  <!-- Formulario de contacto -->
+  <div class="contact-form-container">
+    <form id="contactForm">
+      <h2>Contacto</h2>
+      <div class="form-group">
+        <label for="name">Nombre *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensaje *</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit">Enviar Mensaje</button>
+      </div>
+    </form>
+    <p id="successMessage" class="success-message" style="display: none;">Su mensaje ha sido enviado con éxito, responderemos a la brevedad.</p>
+  </div>
+  <!-- Fin del formulario de contacto -->
+
+</div>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-white pt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>We are a leading company in tech solutions, providing top-notch services to our clients worldwide.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-envelope"></i> info@example.com</li>
+          <li><i class="fas fa-phone"></i> +123 456 7890</li>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Street, City, Country</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Follow Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <p>&copy; 2024 CanteroDesign. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/scripts/form.js"></script>
+
+</body>
+</html>

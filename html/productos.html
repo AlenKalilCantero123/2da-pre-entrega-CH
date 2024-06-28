@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEKNETIUM</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Jacquard+12+Charted&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <h1 class="logo">Teknetium logo</h1>
+    <ul class="nav-links">
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="/html/productos.html">Productos</a></li>
+      <li><a href="/html/clientes.html">Clientes</a></li>
+      <li><a href="/html/contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h1 id="title">PRODUCTOS</h1>
+
+<div class="content">
+  <h2 id="subtitle">Elija sus productos</h2>
+  <div class="about-me-box">
+    <h3>Productos y presupuestos</h3>
+    <div class="image-box">
+      <div class="small-box" id="assestment-card">
+        <h4>ASSESTMENT</h4>
+        <div class="image-container">
+          <img src="https://tse4.mm.bing.net/th?id=OIP._Egh-7uG9vZ6y5DQ97oq_wEsEs&pid=Api&P=0&h=180" alt="ASSESTMENT Image">
+        </div>
+        <span class="price">$100</span>
+      </div>
+      <div class="small-box" id="cibersec-card">
+        <h4>CIBERSEC</h4>
+        <div class="image-container">
+          <img src="/assets/ai-in-cybersecurity.jpeg" alt="CIBERSEC Image">
+        </div>
+        <span class="price">$200</span>
+      </div>
+      <div class="small-box" id="web-design-card">
+        <h4>WEB DESIGN</h4>
+        <div class="image-container">
+          <img src="/assets/homepage-design-connecticut-1.jpeg" alt="WEB DESIGN Image">
+        </div>
+        <span class="price">$300</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="activity-container"></div>
+  <div id="cart-items"></div>
+</div>
+
+<!-- Formulario de contacto -->
+<div class="container">
+  <form id="presupuesto-form">
+    <h2>Generador de Presupuestos</h2>
+    <div class="form-group">
+      <label for="nombre">Nombre del Cliente:</label>
+      <input type="text" class="form-control" id="nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Correo Electrónico:</label>
+      <input type="email" class="form-control" id="email" required>
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" class="form-control" id="telefono">
+    </div>
+
+    <!-- Detalles del presupuesto -->
+    <h3>Servicios Seleccionados:</h3>
+    <div class="form-group">
+      <textarea class="form-control" id="servicios" rows="3" readonly></textarea>
+    </div>
+    <div class="form-group">
+      <label for="precio">Precio Total:</label>
+      <input type="text" class="form-control" id="precio-total" readonly>
+    </div>
+    <div class="form-group">
+      <label for="urgencia">Con urgencia</label>
+      <input type="checkbox" id="urgencia">
+    </div>
+    <div class="form-group">
+     
+      
+    
+    <button type="button" id="vaciar-carrito" class="btn btn-secondary ml-2">Vaciar carrito</button>
+    <button type="submit" class="btn btn-primary">Generar Presupuesto</button>
+    </div>
+    
+  </form>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white pt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>We are a leading company in tech solutions, providing top-notch services to our clients worldwide.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-envelope"></i> info@example.com</li>
+          <li><i class="fas fa-phone"></i> +123 456 7890</li>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Street, City, Country</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Follow Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <p>&copy; 2024 CanteroDesign. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts de Bootstrap y jQuery (si es necesario) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Script personalizado para manejar el formulario y generar presupuestos -->
+<script type="module" src="/scripts/products.js"></script>
+</body>
+</html>
